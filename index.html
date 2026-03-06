@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- tailwind + daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <section class="bg-white my-10 grid grid-cols-1 justify-center w-[500px] py-10 mx-auto shadow-2xl items-center">
+        <div class="justify-center space-y-4 text-center">
+            <img class="mx-auto" src="./assets/github-logo.png" alt="">
+            <h3 class="font-semibold text-[24px]">GitHub Issues Tracker</h3>
+            <p class="text-[#64748B] text-xl font-medium">Sign in to manage your issues</p>
+        </div>
+
+        <!-- loing from -->
+        <div class="flex flex-col justify-center items-center">
+            <fieldset class="fieldset border-none rounded-box w-xs border p-4">
+                <label class="label text-[20px] font-medium text-[#1F2937]">Username</label>
+                <input type="email" id="inputName" class="input" placeholder="Enter Username" />
+
+                <label class="label text-[20px] font-medium text-[#1F2937]">Password</label>
+                <input type="password" id="inputPass" class="input " placeholder="Enter Password" />
+
+                <button id="sign-btn" class="btn btn-primary mt-4">Sign In</button>
+            </fieldset>
+
+
+        </div>
+        <div class="flex items-center my-6 w-[300px] mx-auto">
+            <hr class="flex-grow border-gray-600">
+            <span class="px-3 text-gray-500">OR</span>
+            <hr class="flex-grow border-gray-600">
+        </div>
+
+        <p class="text-center my-5 text-[#1F2937] text-xm">Demo Credentials:</p>
+        <div class="mx-10 p-5 rounded-sm text-center bg-gray-300">
+            <h2><span class="font-bold text-xl text-[#1F2937]">Username:</span> admin
+            </h2>
+            <h2> <span class="font-bold text-xl text-[#1F2937]">Password:</span> admin123</h2>
+
+        </div>
+
+    </section>
+
+
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
