@@ -28,10 +28,10 @@
                             <path d="m21 21-4.3-4.3"></path>
                         </g>
                     </svg>
-                    <input type="search" required placeholder="Search" />
+                    <input id="searchValue" type="search" required placeholder="Search" />
                 </label>
                 <div>
-                    <button class="btn btn-primary"> <i class="fa-solid fa-plus"></i> Primary</button>
+                    <button id="search-btn" class="btn btn-primary"> <i class="fa-solid fa-plus"></i> Primary</button>
                 </div>
 
             </div>
@@ -61,18 +61,26 @@
                     </div>
                 </div>
                 <!-- open close -->
-                <div class="flex">
-                    <p>Open</p>
-                    <p>Closed</p>
-
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-1">
+                        <span class="w-4 h-4 rounded-full bg-green-500"></span>
+                        <p class="font-bold">Open</p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="w-4 h-4 rounded-full bg-purple-500"></span>
+                        <p class="font-bold">Closed</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- card section -->
         <section class="w-11/12 mx-auto bg-base-200 p-8">
-            <div class="grid grid-cols-4 gap-4">
-                <div class="bg-white p-5 space-y-4 border border-gray-300 border-t-4 rounded-sm">
+            <div id="container" class=" grid grid-cols-4 gap-4">
+
+
+
+                <!-- <div class="bg-white p-5 space-y-4 border border-gray-300 border-t-4 rounded-sm">
                     <h1 class="text-2xl font-bold">Fix navigation menu on mobile devices</h1>
                     <p class="text-xl font-semibold text-[#64748B] line-clamp-2">The navigation menu doesn't collapse
                         properly on mobile devices...</p>
@@ -92,6 +100,10 @@
                         <P>1/15/2024</P>
                     </div>
 
+                
+                
+                
+                
                 </div>
                 <div class="bg-white p-5 space-y-4">
                     <h1 class="text-2xl font-bold">Fix navigation menu on mobile devices</h1>
@@ -155,13 +167,66 @@
                         <P>1/15/2024</P>
                     </div>
 
-                </div>
+                </div> -->
+
+
             </div>
+        </section>
+
+        <!-- modal -->
+        <section>
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <div id="modalContainer">
+                        <!-- modal text -->
+                        <div>
+                            <h2>name</h2>
+                            <div>
+                                <p>open</p>
+                                <h3>Fahim</h3>
+                                <p>22.2.2026</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="flex items-center px-5 py-2 bg-[#FECACA] space-x-2 rounded-4xl">
+                                    <img src="./assets/Vector (2).png" alt="">
+                                    <p class="text-[#EF4444]">Bug</p>
+                                </div>
+                                <div class="flex items-center px-5 py-2 bg-[#FECACA] space-x-2 rounded-4xl">
+                                    <img src="./assets/Vector (2).png" alt="">
+                                    <p class="text-[#EF4444]">Allow</p>
+                                </div>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                            <div class="bg-gray-500 grid grid-cols-3">
+                                <div>
+                                    <p>Assignee:</p>
+                                    <h2>anika</h2>
+                                </div>
+                                <div>
+                                    <p>Priority</p>
+                                    <p class="px-4 py-2 bg-red-700">high</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn btn-primary">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </section>
     </main>
 
 
 
+
+    <script src="./js/api.js"></script>
 </body>
 
 </html>
