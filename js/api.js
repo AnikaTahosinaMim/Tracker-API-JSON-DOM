@@ -32,9 +32,9 @@ const displayIssues = (issues) => {
     }
 
     issuesAppended.innerHTML = `
-    <div class="flex items-center  justify-between space-x-2 ">
+    <div  class="flex items-center  justify-between space-x-2 ">
             <img src="./assets/open-status.png" alt=""> 
-            <p class="text-[#D97706] bg-gray-200 rounded-3xl px-5 py-2">${item.priority}</p>
+            <p onclick="useModal(${item.id})" class="text-[#D97706] bg-gray-200 rounded-3xl px-5 py-2">${item.priority}</p>
         </div>
     <h1 class="text-2xl font-bold">${item.title}</h1>
     
@@ -57,16 +57,30 @@ const displayIssues = (issues) => {
     `;
     issuesContainer.appendChild(issuesAppended);
   });
+  // hiddenLoading();
 };
 
 const allbtn = document.getElementById("all-btn");
 const openBtn = document.getElementById("open-btn");
 const closeBtn = document.getElementById("close-btn");
 const countIssues = document.getElementById("countIssues");
+const loadingScan = document.getElementById("loadingScan");
+
+// show loading
+function showLoading() {
+  loadingScan.classList.add("flex");
+  loadingScan.classList.remove("hidden");
+}
+// hidden loading
+function hiddenLoading() {
+  loadingScan.classList.add("hidden");
+  loadingScan.classList.remove("flex");
+}
 
 let allBtnStatus = "all-btn";
 function toggleBtn(id) {
   allBtnStatus = id;
+  showLoading();
   // remove all color
   allbtn.classList.remove("btn-primary", "text-white");
   openBtn.classList.remove("btn-primary", "text-white");
@@ -81,19 +95,23 @@ function toggleBtn(id) {
   clickbtn.classList.remove("bg-white", "text-black");
   // section data
   // je btn a click krsi..setar data dekhasse..atar functionality akhne...
-  if (id === "open-btn") {
-    filteredIssues = issues.filter((issue) => issue.status === "open");
+  setTimeout(() => {
+    if (id === "open-btn") {
+      filteredIssues = issues.filter((issue) => issue.status === "open");
+      displayIssues(filteredIssues);
 
-    displayIssues(filteredIssues);
-    document.getElementById("countIssues").innerText = filteredIssues.length;
-  } else if (id === "close-btn") {
-    filteredIssues = issues.filter((issue) => issue.status === "closed");
-    displayIssues(filteredIssues);
-    document.getElementById("countIssues").innerText = filteredIssues.length;
-  } else if (id === "all-btn") {
-    displayIssues(issues);
-    document.getElementById("countIssues").innerText = issues.length;
-  }
+      document.getElementById("countIssues").innerText = filteredIssues.length;
+    } else if (id === "close-btn") {
+      filteredIssues = issues.filter((issue) => issue.status === "closed");
+      displayIssues(filteredIssues);
+      // hiddenLoading();
+      document.getElementById("countIssues").innerText = filteredIssues.length;
+    } else if (id === "all-btn") {
+      displayIssues(issues);
+      document.getElementById("countIssues").innerText = issues.length;
+    }
+    hiddenLoading();
+  }, 300);
 }
 
 // akhne ja seacrah dissi tai passi
@@ -101,15 +119,27 @@ document
   .getElementById("search-btn")
   .addEventListener("click", async function () {
     const searchValue = document.getElementById("searchValue");
+
     const ValueInput = searchValue.value.trim().toLowerCase();
+    if (ValueInput === "") {
+      alert("Enter Word");
+      return;
+    }
     console.log(ValueInput);
     const res = await fetch(
       `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${ValueInput}`,
     );
     const data = await res.json();
+    let maindata = data.data;
 
     console.log(data.data);
-    displayIssues(data.data);
+
+    if (maindata.length === 0) {
+      alert("Sorry !! No word found");
+      return;
+    }
+    document.getElementById("countIssues").innerText = maindata.length;
+    displayIssues(maindata);
     searchValue.value = "";
   });
 

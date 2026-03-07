@@ -14,12 +14,12 @@
 
 <body>
     <nav>
-        <div class="flex justify-between shadow-xl px-[50px] py-5">
-            <div class="flex items-center space-x-2">
+        <div class="flex flex-col md:flex-row justify-between shadow-xl px-[50px] py-5">
+            <div class="flex flex-col md:flex-row items-center space-x-2">
                 <img class=" w-9 h-9" src="./assets/github-logo.png" alt="">
                 <h2 class="font-bold text-2xl">GitHub Issues Tracker</h2>
             </div>
-            <div class="flex space-x-4">
+            <div class="flex flex-col md:flex-row gap-4">
                 <label class="input">
                     <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
@@ -38,21 +38,27 @@
         </div>
     </nav>
 
+
     <main class=" bg-cover bg-base-300 py-12">
 
         <!-- 3 btn section -->
         <section>
-            <div class="bg-white shadow-xl rounded-sm space-x-3 p-8 w-11/12 mx-auto">
+            <div class="bg-white flex flex-col md:flex-row gap-5 shadow-xl rounded-sm p-8 w-11/12 mx-auto">
                 <button id="all-btn" onclick="toggleBtn('all-btn')" class="px-10 py-2 btn btn-primary">All</button>
                 <button id="open-btn" onclick="toggleBtn('open-btn')" class="px-9 py-2 btn">Open</button>
                 <button id="close-btn" onclick="toggleBtn('close-btn')" class="px-9 py-2 btn">Closed</button>
             </div>
         </section>
+        <!-- loadingScan -->
+        <div id="loadingScan" class="items-center hidden justify-center h-40">
+            <span class="loading loading-spinner text-primary "></span>
+        </div>
+
 
         <!-- issues or count section 50++ -->
         <section>
             <div
-                class="flex justify-between items-center bg-white shadow-xl rounded-sm space-x-3 mt-10 p-8 w-11/12 mx-auto">
+                class="flex flex-col md:flex-row justify-between items-center bg-white shadow-xl rounded-sm gap-4 mt-10 p-8 w-11/12 mx-auto">
                 <div class="flex space-x-3 items-center">
                     <img class="w-12 h-12 p-2 bg-gray-200 rounded-full" src="./assets/Aperture.png" alt="">
                     <div>
@@ -61,7 +67,7 @@
                     </div>
                 </div>
                 <!-- open close -->
-                <div class="flex items-center gap-4">
+                <div class="flex flex-col md:flex-row items-center gap-4">
                     <div class="flex items-center gap-1">
                         <span class="w-4 h-4 rounded-full bg-green-500"></span>
                         <p class="font-bold">Open</p>
