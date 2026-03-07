@@ -62,6 +62,7 @@ const displayIssues = (issues) => {
 const allbtn = document.getElementById("all-btn");
 const openBtn = document.getElementById("open-btn");
 const closeBtn = document.getElementById("close-btn");
+const countIssues = document.getElementById("countIssues");
 
 let allBtnStatus = "all-btn";
 function toggleBtn(id) {
@@ -81,17 +82,19 @@ function toggleBtn(id) {
   // section data
   // je btn a click krsi..setar data dekhasse..atar functionality akhne...
   if (id === "open-btn") {
-    const openIssues = issues.filter((issue) => issue.status === "open");
-    displayIssues(openIssues);
+    filteredIssues = issues.filter((issue) => issue.status === "open");
+
+    displayIssues(filteredIssues);
+    document.getElementById("countIssues").innerText = filteredIssues.length;
   } else if (id === "close-btn") {
-    const closedIssues = issues.filter((issu) => issu.status === "closed");
-    displayIssues(closedIssues);
+    filteredIssues = issues.filter((issue) => issue.status === "closed");
+    displayIssues(filteredIssues);
+    document.getElementById("countIssues").innerText = filteredIssues.length;
   } else if (id === "all-btn") {
     displayIssues(issues);
+    document.getElementById("countIssues").innerText = issues.length;
   }
 }
-
-
 
 // akhne ja seacrah dissi tai passi
 document
@@ -118,7 +121,7 @@ async function useModal(id) {
   const data = await res.json();
   displayModal(data.data);
 }
-
+// display modal
 async function displayModal(menu) {
   const modalContainer = document.getElementById("modalContainer");
   modalContainer.innerHTML = `
