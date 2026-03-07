@@ -1,3 +1,26 @@
+// button section functionlity..
+
+const allbtn = document.getElementById("all-btn");
+const openBtn = document.getElementById("open-btn");
+const closeBtn = document.getElementById("close-btn");
+
+let allBtnStatus = "all-btn";
+function toggleBtn(id) {
+  allBtnStatus = id;
+  // remove all color
+  allbtn.classList.remove("btn-primary","text-white");
+  openBtn.classList.remove("btn-primary","text-white");
+  closeBtn.classList.remove("btn-primary","text-white");
+  // add color
+  allbtn.classList.add("bg-white", "text-black");
+  openBtn.classList.add("bg-white", "text-black");
+  closeBtn.classList.add("bg-white", "text-black");
+
+  const clickbtn = document.getElementById(id);
+  clickbtn.classList.add("bg-blue-500", "text-white");
+  clickbtn.classList.remove("bg-white", "text-black");
+}
+
 // fetch issues data
 async function issuesFetchData() {
   const res = await fetch(
@@ -69,7 +92,7 @@ document
 
     console.log(data.data);
     displayIssues(data.data);
-    searchValue.value = ""
+    searchValue.value = "";
   });
 
 // for modal fetch
