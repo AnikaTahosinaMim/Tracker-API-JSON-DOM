@@ -1,36 +1,17 @@
 // button section functionlity..
+// ata global veribal..jate ar maje data fetch kre btn a use krte pari oi api ta
+let issues = [];
 
-const allbtn = document.getElementById("all-btn");
-const openBtn = document.getElementById("open-btn");
-const closeBtn = document.getElementById("close-btn");
-
-let allBtnStatus = "all-btn";
-function toggleBtn(id) {
-  allBtnStatus = id;
-  // remove all color
-  allbtn.classList.remove("btn-primary","text-white");
-  openBtn.classList.remove("btn-primary","text-white");
-  closeBtn.classList.remove("btn-primary","text-white");
-  // add color
-  allbtn.classList.add("bg-white", "text-black");
-  openBtn.classList.add("bg-white", "text-black");
-  closeBtn.classList.add("bg-white", "text-black");
-
-  const clickbtn = document.getElementById(id);
-  clickbtn.classList.add("bg-blue-500", "text-white");
-  clickbtn.classList.remove("bg-white", "text-black");
-}
-
-// fetch issues data
 async function issuesFetchData() {
   const res = await fetch(
     "https://phi-lab-server.vercel.app/api/v1/lab/issues",
   );
   const data = await res.json();
-  displayIssues(data.data);
-}
+  issues = data.data;
 
-// display issues data
+  displayIssues(issues);
+}
+// display issues
 const displayIssues = (issues) => {
   //   console.log(issues);
   const issuesContainer = document.getElementById("container");
@@ -78,7 +59,41 @@ const displayIssues = (issues) => {
   });
 };
 
-// search issues
+const allbtn = document.getElementById("all-btn");
+const openBtn = document.getElementById("open-btn");
+const closeBtn = document.getElementById("close-btn");
+
+let allBtnStatus = "all-btn";
+function toggleBtn(id) {
+  allBtnStatus = id;
+  // remove all color
+  allbtn.classList.remove("btn-primary", "text-white");
+  openBtn.classList.remove("btn-primary", "text-white");
+  closeBtn.classList.remove("btn-primary", "text-white");
+  // add color
+  allbtn.classList.add("bg-white", "text-black");
+  openBtn.classList.add("bg-white", "text-black");
+  closeBtn.classList.add("bg-white", "text-black");
+
+  const clickbtn = document.getElementById(id);
+  clickbtn.classList.add("bg-blue-500", "text-white");
+  clickbtn.classList.remove("bg-white", "text-black");
+  // section data
+  // je btn a click krsi..setar data dekhasse..atar functionality akhne...
+  if (id === "open-btn") {
+    const openIssues = issues.filter((issue) => issue.status === "open");
+    displayIssues(openIssues);
+  } else if (id === "close-btn") {
+    const closedIssues = issues.filter((issu) => issu.status === "closed");
+    displayIssues(closedIssues);
+  } else if (id === "all-btn") {
+    displayIssues(issues);
+  }
+}
+
+
+
+// akhne ja seacrah dissi tai passi
 document
   .getElementById("search-btn")
   .addEventListener("click", async function () {
