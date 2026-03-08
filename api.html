@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GitHub Issues Tracker</title>
+    <!-- favicon -->
+     <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -17,21 +19,21 @@
         <div class="flex flex-col md:flex-row justify-between shadow-xl px-[50px] py-5">
             <div class="flex flex-col md:flex-row items-center space-x-2">
                 <img class=" w-9 h-9" src="./assets/github-logo.png" alt="">
-                <h2 class="font-bold text-2xl">GitHub Issues Tracker</h2>
+                <h2 class="font-bold text-3xl">GitHub Issues Tracker</h2>
             </div>
             <div class="flex flex-col md:flex-row gap-4">
                 <label class="input">
-                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <svg class="h-[2em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
                             stroke="currentColor">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.3-4.3"></path>
                         </g>
                     </svg>
-                    <input id="searchValue" type="search" required placeholder="Search" />
+                    <input id="searchValue" type="search" class="text-xl" required placeholder="Search" />
                 </label>
                 <div>
-                    <button id="search-btn" class="btn btn-primary"> <i class="fa-solid fa-plus"></i> Primary</button>
+                    <button id="search-btn" class="btn btn-primary text-xl"> <i class="fa-solid fa-plus"></i>Primary</button>
                 </div>
 
             </div>
@@ -44,9 +46,9 @@
         <!-- 3 btn section -->
         <section>
             <div class="bg-white flex flex-col md:flex-row gap-5 shadow-xl rounded-sm p-8 w-11/12 mx-auto">
-                <button id="all-btn" onclick="toggleBtn('all-btn')" class="px-10 py-2 btn btn-primary">All</button>
-                <button id="open-btn" onclick="toggleBtn('open-btn')" class="px-9 py-2 btn">Open</button>
-                <button id="close-btn" onclick="toggleBtn('close-btn')" class="px-9 py-2 btn">Closed</button>
+                <button id="all-btn" onclick="toggleBtn('all-btn')" class="px-10 py-2 btn btn-primary text-xl">All</button>
+                <button id="open-btn" onclick="toggleBtn('open-btn')" class="px-9 py-2 btn text-xl">Open</button>
+                <button id="close-btn" onclick="toggleBtn('close-btn')" class="px-9 py-2 btn text-xl">Closed</button>
             </div>
         </section>
         <!-- loadingScan -->
@@ -62,7 +64,7 @@
                 <div class="flex space-x-3 items-center">
                     <img class="w-12 h-12 p-2 bg-gray-200 rounded-full" src="./assets/Aperture.png" alt="">
                     <div>
-                        <h2 class="font-bold text-2xl"> <span id="countIssues">50</span> Issues</h2>
+                        <h2 class="font-bold text-4xl"> <span id="countIssues">50</span> Issues</h2>
                         <p class="text-[#64748B] text-xl">Track and manage your project issues</p>
                     </div>
                 </div>
@@ -70,11 +72,11 @@
                 <div class="flex flex-col md:flex-row items-center gap-4">
                     <div class="flex items-center gap-1">
                         <span class="w-4 h-4 rounded-full bg-green-500"></span>
-                        <p class="font-bold">Open</p>
+                        <p class="font-bold text-xl">Open</p>
                     </div>
                     <div class="flex items-center gap-1">
                         <span class="w-4 h-4 rounded-full bg-purple-500"></span>
-                        <p class="font-bold">Closed</p>
+                        <p class="font-bold text-xl">Closed</p>
                     </div>
                 </div>
             </div>

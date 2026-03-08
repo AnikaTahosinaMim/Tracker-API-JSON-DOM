@@ -12,6 +12,7 @@ async function issuesFetchData() {
   displayIssues(issues);
 }
 // display issues
+let statusIcons = "";
 const displayIssues = (issues) => {
   //   console.log(issues);
   const issuesContainer = document.getElementById("container");
@@ -22,21 +23,23 @@ const displayIssues = (issues) => {
     const issuesAppended = document.createElement("div");
 
     issuesAppended.className =
-      "bg-white p-5 space-y-4 border border-gray-500 border-t-4 rounded-sm";
+      "bg-white p-5 space-y-4 border border-gray-500 border-t-6 rounded-sm";
     // for open and closed border
     if (item.status === "open") {
       //   console.log(item.status);
       issuesAppended.classList.replace("border-gray-500", "border-green-500");
+      statusIcons = "../assets/Open-Status.png";
     } else if (item.status === "closed") {
       issuesAppended.classList.replace("border-gray-500", "border-purple-500");
+      statusIcons = "../assets/Closed- Status .png";
     }
 
     issuesAppended.innerHTML = `
     <div  class="flex items-center  justify-between space-x-2 ">
-            <img src="./assets/open-status.png" alt=""> 
+            <img src= "${statusIcons}" alt=""> 
             <p onclick="useModal(${item.id})" class="text-[#D97706] bg-gray-200 rounded-3xl px-5 py-2">${item.priority}</p>
         </div>
-    <h1 class="text-2xl font-bold">${item.title}</h1>
+    <h1 class="text-3xl font-bold">${item.title}</h1>
     
                     <p class="text-xl font-semibold text-[#64748B] line-clamp-2">${item.description}</p>
                     <div onclick="useModal(${item.id})" class="flex gap-3">
@@ -154,11 +157,13 @@ async function useModal(id) {
 // display modal
 async function displayModal(menu) {
   const modalContainer = document.getElementById("modalContainer");
+  let menuStatus = menu.status === "open" ? "bg-green-500" : "bg-red-500";
+
   modalContainer.innerHTML = `
   <div class="space-x-5">
         <h2 class="my-4 text-4xl font-bold">${menu.title}</h2>
         <div class="flex space-x-4 my-6 text-[#64748B] text-xl font-medium">
-            <p><span class="px-5 py-2 bg-green-600 rounded-2xl text-white">${menu.status}</span></p>
+            <p><span class="px-3 py-1 rounded-2xl text-white ${menuStatus}">${menu.status}</span></p>
             <h3>Opened by.${menu.author}</h3>
             <p>22.2.2026</p>
         </div>
@@ -176,7 +181,7 @@ async function displayModal(menu) {
         <div class="bg-gray-200 space-y-4  rounded-xl grid grid-cols-2">
             <div class="space-y-2 p-3">
                 <p class="text-[#64748B] text-xl font-medium">Assignee:</p>
-                <h2 class="text-3xl font-semibold">${menu.assignee ? menu.assignee : "Not"}</h2>
+                <h2 class="text-xl font-semibold">${menu.assignee ? menu.assignee : "No Added"}</h2>
             </div>
             <div class="space-y-3 p-3">
                 <p class="text-[#64748B] text-xl font-medium">Priority</p>
