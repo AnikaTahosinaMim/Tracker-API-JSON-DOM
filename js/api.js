@@ -23,14 +23,14 @@ const displayIssues = (issues) => {
     const issuesAppended = document.createElement("div");
 
     issuesAppended.className =
-      "bg-white p-5 space-y-4 border border-gray-500 border-t-6 rounded-sm";
+      "bg-white p-5 space-y-4 border-t-gray-500 border-t-5 rounded-xl";
     // for open and closed border
     if (item.status === "open") {
       //   console.log(item.status);
-      issuesAppended.classList.replace("border-gray-500", "border-green-500");
+      issuesAppended.classList.replace("border-t-gray-500", "border-t-green-500");
       statusIcons = "../assets/Open-Status.png";
     } else if (item.status === "closed") {
-      issuesAppended.classList.replace("border-gray-500", "border-purple-500");
+      issuesAppended.classList.replace("border-t-gray-500", "border-t-purple-500");
       statusIcons = "../assets/Closed- Status .png";
     }
 
@@ -39,7 +39,7 @@ const displayIssues = (issues) => {
             <img src= "${statusIcons}" alt=""> 
             <p onclick="useModal(${item.id})" class="text-[#D97706] bg-gray-200 rounded-3xl px-5 py-1">${item.priority}</p>
         </div>
-    <h1 class="text-3xl font-bold line-clamp-2">${item.title}</h1>
+    <h1 class="text-xl font-bold line-clamp-2">${item.title}</h1>
     
                     <p class="text-xl font-semibold text-[#64748B] line-clamp-2">${item.description}</p>
                     <div onclick="useModal(${item.id})" class="flex gap-3">
