@@ -4,7 +4,7 @@ document.getElementById("sign-btn").addEventListener("click", function () {
   const inputPass = document.getElementById("inputPass");
   if (inputName.value === "admin" && inputPass.value === "admin123") {
     // window.location = "../api.html"
-    window.location.assign("../api.html");
+    window.location.assign("api.html");
   } else {
     alert("Your correct username is : admin and password is : admin123");
     return;
