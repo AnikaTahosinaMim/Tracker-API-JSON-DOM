@@ -37,19 +37,19 @@ const displayIssues = (issues) => {
     issuesAppended.innerHTML = `
     <div  class="flex items-center  justify-between space-x-2 ">
             <img src= "${statusIcons}" alt=""> 
-            <p onclick="useModal(${item.id})" class="text-[#D97706] bg-gray-200 rounded-3xl px-5 py-2">${item.priority}</p>
+            <p onclick="useModal(${item.id})" class="text-[#D97706] bg-gray-200 rounded-3xl px-5 py-1">${item.priority}</p>
         </div>
     <h1 class="text-3xl font-bold">${item.title}</h1>
     
                     <p class="text-xl font-semibold text-[#64748B] line-clamp-2">${item.description}</p>
                     <div onclick="useModal(${item.id})" class="flex gap-3">
-                        <div class="flex items-center px-5 py-2 bg-[#FECACA] space-x-2 rounded-4xl">
+                        <div class="flex items-center px-2 py-0 bg-[#FECACA] space-x-2 rounded-4xl">
                             <img src="./assets/Vector (2).png" alt="">
-                            <p class="text-[#EF4444]">${item.labels[0] ? item.labels[0] : "NO Added"}</p>
+                            <p class="text-[#EF4444] line-clamp-1">${item.labels[0] ? item.labels[0] : "NO Added"}</p>
                         </div>
-                        <div class="flex items-center space-x-2 bg-[#FDE68A] rounded-3xl px-5 py-2">
+                        <div class="flex items-center space-x-2 bg-[#FDE68A] rounded-3xl px-2 py-0">
                             <img src="./assets/Vector (3).png" alt="">
-                            <p class="text-[#D97706]">${item.labels[1] ? item.labels[1] : "No Added"}</p>
+                            <p class="text-[#D97706] line-clamp-1">${item.labels[1] ? item.labels[1] : "No Added"}</p>
                         </div>
                     </div>
                     <hr class="w-full m-0 p-0 border-gray-300">
