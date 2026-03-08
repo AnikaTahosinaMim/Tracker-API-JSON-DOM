@@ -39,7 +39,7 @@ const displayIssues = (issues) => {
             <img src= "${statusIcons}" alt=""> 
             <p onclick="useModal(${item.id})" class="text-[#D97706] bg-gray-200 rounded-3xl px-5 py-1">${item.priority}</p>
         </div>
-    <h1 class="text-3xl font-bold">${item.title}</h1>
+    <h1 class="text-3xl font-bold line-clamp-2">${item.title}</h1>
     
                     <p class="text-xl font-semibold text-[#64748B] line-clamp-2">${item.description}</p>
                     <div onclick="useModal(${item.id})" class="flex gap-3">

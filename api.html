@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,9 +57,9 @@
         <section>
             <div class="bg-white flex flex-col md:flex-row gap-5 shadow-xl rounded-sm p-8 w-11/12 mx-auto">
                 <button id="all-btn" onclick="toggleBtn('all-btn')"
-                    class="px-10 py-2 btn btn-primary text-xl">All</button>
-                <button id="open-btn" onclick="toggleBtn('open-btn')" class="px-9 py-2 btn text-xl">Open</button>
-                <button id="close-btn" onclick="toggleBtn('close-btn')" class="px-9 py-2 btn text-xl">Closed</button>
+                    class="px-10 py-2 btn btn-primary text-sm">All</button>
+                <button id="open-btn" onclick="toggleBtn('open-btn')" class="px-9 py-2 btn text-sm">Open</button>
+                <button id="close-btn" onclick="toggleBtn('close-btn')" class="px-9 py-2 btn text-sm">Closed</button>
             </div>
         </section>
         <!-- loadingScan -->
