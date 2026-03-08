@@ -32,13 +32,13 @@ const displayIssues = (issues) => {
         "border-t-gray-500",
         "border-t-green-500",
       );
-      statusIcons = "assets/Open-Status.png";
+      statusIcons ="assets/Open-Status.png";
     } else if (item.status === "closed") {
       issuesAppended.classList.replace(
         "border-t-gray-500",
         "border-t-purple-500",
       );
-      statusIcons = "assets/Closed- Status .png";
+      statusIcons ="assets/Closed-Status.png";
     }
 
     if (item.priority === "high") {
