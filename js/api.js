@@ -32,13 +32,13 @@ const displayIssues = (issues) => {
         "border-t-gray-500",
         "border-t-green-500",
       );
-      statusIcons = "../assets/Open-Status.png";
+      statusIcons = "assets/Open-Status.png";
     } else if (item.status === "closed") {
       issuesAppended.classList.replace(
         "border-t-gray-500",
         "border-t-purple-500",
       );
-      statusIcons = "../assets/Closed- Status .png";
+      statusIcons = "assets/Closed- Status .png";
     }
 
     if (item.priority === "high") {
@@ -56,7 +56,7 @@ const displayIssues = (issues) => {
             <img src= "${statusIcons}" alt=""> 
             <p onclick="useModal(${item.id})" class="${priorityColor} rounded-3xl px-5 py-1">${item.priority}</p>
         </div>
-    <h1 class="text-xl font-bold line-clamp-2">${item.title}</h1>
+    <h1 onclick="useModal(${item.id})" class="text-xl font-bold line-clamp-2">${item.title}</h1>
     
                     <p class="text-xl font-semibold text-[#64748B] line-clamp-2">${item.description}</p>
                     <div onclick="useModal(${item.id})" class="flex gap-3">
