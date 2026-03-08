@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Issues Tracker</title>
     <!-- favicon -->
-     <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -18,7 +18,7 @@
     <nav>
         <div class="flex flex-col md:flex-row justify-between shadow-xl px-[50px] py-5">
             <div class="flex flex-col md:flex-row items-center space-x-2">
-                <img class=" w-9 h-9" src="./assets/github-logo.png" alt="">
+                <img class="w-10 h-10 " src="./assets/github-logo.png" alt="">
                 <h2 class="font-bold text-3xl">GitHub Issues Tracker</h2>
             </div>
             <div class="flex flex-col md:flex-row gap-4">
@@ -33,7 +33,8 @@
                     <input id="searchValue" type="search" class="text-xl" required placeholder="Search" />
                 </label>
                 <div>
-                    <button id="search-btn" class="btn btn-primary text-xl"> <i class="fa-solid fa-plus"></i>Primary</button>
+                    <button id="search-btn" class="btn btn-primary text-xl"> <i
+                            class="fa-solid fa-plus"></i>Primary</button>
                 </div>
 
             </div>
@@ -46,7 +47,8 @@
         <!-- 3 btn section -->
         <section>
             <div class="bg-white flex flex-col md:flex-row gap-5 shadow-xl rounded-sm p-8 w-11/12 mx-auto">
-                <button id="all-btn" onclick="toggleBtn('all-btn')" class="px-10 py-2 btn btn-primary text-xl">All</button>
+                <button id="all-btn" onclick="toggleBtn('all-btn')"
+                    class="px-10 py-2 btn btn-primary text-xl">All</button>
                 <button id="open-btn" onclick="toggleBtn('open-btn')" class="px-9 py-2 btn text-xl">Open</button>
                 <button id="close-btn" onclick="toggleBtn('close-btn')" class="px-9 py-2 btn text-xl">Closed</button>
             </div>
@@ -69,7 +71,7 @@
                     </div>
                 </div>
                 <!-- open close -->
-                <div class="flex flex-col md:flex-row items-center gap-4">
+                <div class="flex flex-col md:flex-row items-center gap-4 order-1 md:order-2">
                     <div class="flex items-center gap-1">
                         <span class="w-4 h-4 rounded-full bg-green-500"></span>
                         <p class="font-bold text-xl">Open</p>
