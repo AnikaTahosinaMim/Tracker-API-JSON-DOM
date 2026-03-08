@@ -13,6 +13,7 @@ async function issuesFetchData() {
 }
 // display issues
 let statusIcons = "";
+let priorityColor = "";
 const displayIssues = (issues) => {
   //   console.log(issues);
   const issuesContainer = document.getElementById("container");
@@ -27,17 +28,33 @@ const displayIssues = (issues) => {
     // for open and closed border
     if (item.status === "open") {
       //   console.log(item.status);
-      issuesAppended.classList.replace("border-t-gray-500", "border-t-green-500");
+      issuesAppended.classList.replace(
+        "border-t-gray-500",
+        "border-t-green-500",
+      );
       statusIcons = "../assets/Open-Status.png";
     } else if (item.status === "closed") {
-      issuesAppended.classList.replace("border-t-gray-500", "border-t-purple-500");
+      issuesAppended.classList.replace(
+        "border-t-gray-500",
+        "border-t-purple-500",
+      );
       statusIcons = "../assets/Closed- Status .png";
+    }
+
+    if (item.priority === "high") {
+      priorityColor = "bg-[#FEECEC] text-[#EF4444]";
+    } else if (item.priority === "medium") {
+      priorityColor = "bg-[#FFF6D1] text-[#F59E0B]";
+    } else if (item.priority === "low") {
+      priorityColor = "bg-gray-300 text-gray-600";
+    } else {
+      priorityColor = "bg-gray-300 text-black"; 
     }
 
     issuesAppended.innerHTML = `
     <div  class="flex items-center  justify-between space-x-2 ">
             <img src= "${statusIcons}" alt=""> 
-            <p onclick="useModal(${item.id})" class="text-[#D97706] bg-gray-200 rounded-3xl px-5 py-1">${item.priority}</p>
+            <p onclick="useModal(${item.id})" class="${priorityColor} rounded-3xl px-5 py-1">${item.priority}</p>
         </div>
     <h1 class="text-xl font-bold line-clamp-2">${item.title}</h1>
     
