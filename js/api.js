@@ -12,13 +12,14 @@ async function issuesFetchData() {
   displayIssues(issues);
 }
 // display issues
-let statusIcons = "";
-let priorityColor = "";
+
 const displayIssues = (issues) => {
   //   console.log(issues);
   const issuesContainer = document.getElementById("container");
   issuesContainer.innerHTML = "";
   issues.forEach((item) => {
+    let statusIcons = "";
+    let priorityColor = "";
     // console.log(item);
 
     const issuesAppended = document.createElement("div");
@@ -32,13 +33,13 @@ const displayIssues = (issues) => {
         "border-t-gray-500",
         "border-t-green-500",
       );
-      statusIcons ="assets/Open-Status.png";
+      statusIcons = "assets/Open-Status.png";
     } else if (item.status === "closed") {
       issuesAppended.classList.replace(
         "border-t-gray-500",
         "border-t-purple-500",
       );
-      statusIcons ="assets/Closed-Status.png";
+      statusIcons = "assets/Closed- Status .png";
     }
 
     if (item.priority === "high") {
@@ -48,7 +49,7 @@ const displayIssues = (issues) => {
     } else if (item.priority === "low") {
       priorityColor = "bg-gray-300 text-gray-600";
     } else {
-      priorityColor = "bg-gray-300 text-black"; 
+      priorityColor = "bg-gray-300 text-black";
     }
 
     issuesAppended.innerHTML = `
